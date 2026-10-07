@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Spotify pa minha bbzinha</title>
+
+    <link rel="stylesheet" href="Css/style.css">
+</head>
+
+<body>
+<button onclick="window.location.href='favoritos.html'" class="ok">
+    ❤️ Favoritos
+</button>
+    <main class="playlist">
+
+        <div class="capa">
+            <img src="Img/CapaAlbum.png">
+        </div>
+
+        <h1 class="titulo">Covers</h1>
+
+        <p class="descricao">
+            Uma playlist feita especialmente pra você minha bbzinha ♡
+        </p>
+
+        <button class="botao-play">▶</button>
+
+        <section class="musicas">
+
+    <div class="musica" data-musica="Audio/cover1.mp3" data-capa="Img/PoesiaAcustica.png">
+
+        <span class="numero">1</span>
+
+        <div>
+            <p class="nome-musica">Poesia Acustica #2</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+
+    <div class="musica" data-musica="Audio/cover2.mp3" data-capa="Img/VelhaInfancia.png">
+
+        <span class="numero">2</span>
+
+        <div>
+            <p class="nome-musica">Velha Infancia</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+
+    <div class="musica" data-musica="Audio/cover3.mp3" data-capa="Img/BlocoApaixonados.png">
+
+        <span class="numero">3</span>
+
+        <div>
+            <p class="nome-musica">Bloco dos Apaixonados</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+
+    <div class="musica" data-musica="Audio/cover4.mp3" data-capa="Img/QuemDera.png">
+
+        <span class="numero">4</span>
+
+        <div>
+            <p class="nome-musica">Quem me dera</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+
+    <div class="musica" data-musica="Audio/cover5.mp3" data-capa="Img/PorSupuesto.png">
+
+        <span class="numero">5</span>
+
+        <div>
+            <p class="nome-musica">Por Supuesto</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+    <div class="musica" data-musica="Audio/cover6.mp3" data-capa="Img/GoodNight.png">
+
+        <span class="numero">6</span>
+
+        <div>
+            <p class="nome-musica">Good Night</p>
+            <p class="artista">David Luis - Dls</p>
+        </div>
+
+      <button class="botao-favorito">♡</button>
+      
+    </div>
+
+        </section>
+
+      <div class="player">
+
+    <div class="player-info">
+      
+    <div class="player-capa">
+    <img src="Img/CapaAlbum.png" alt="Capa da música">
+    </div>
+
+    <div>
+        <p class="player-musica">Nenhuma música</p>
+        <p class="player-artista">xxxxx xxxx - xxx</p>
+    </div>
+
+      <div class="player-progresso">
+
+    <span class="tempo-atual">0:00</span>
+
+    <input 
+        type="range" 
+        class="barra-progresso" 
+        min="0" 
+        max="100" 
+        value="0"
+    >
+
+    <span class="tempo-total">0:00</span>
+
+      </div>
+      
+    </div>
+
+    <div class="player-controles">
+        <button>⏮</button>
+        <button class="player-play">▶</button>
+        <button>⏭</button>
+    </div>
+
+      </div>
+
+      <div class="player-expandido">
+
+    <button class="fechar-player">⌄</button>
+
+    <div class="capa-expandida">
+        <img src="Img/CapaAlbum.png" alt="Capa da música">
+    </div>
+
+    <div class="info-expandida">
+
+        <p class="nome-expandido">Nenhuma música</p>
+
+        <p class="artista-expandido">xxxxx xxxx - xxx</p>
+
+    </div>
+
+
+    <div class="progresso-expandido">
+
+        <span class="tempo-expandido-atual">0:00</span>
+
+        <input
+            type="range"
+            class="barra-expandida"
+            min="0"
+            max="100"
+            value="0"
+        >
+
+        <span class="tempo-expandido-total">0:00</span>
+
+    </div>
+
+
+    <div class="controles-expandidos">
+
+        <button class="anterior-expandido">⏮</button>
+
+        <button class="play-expandido">▶</button>
+
+        <button class="proxima-expandida">⏭</button>
+
+    </div>
+
+      </div>
+      
+      <audio id="audio">
+            <source src="Audio/cover1.mp3" type="audio/mpeg">
+      </audio>
+      
+    </main>
+
+    <script src="Js/script.js"></script>
+  
+</body>
+
+</html>

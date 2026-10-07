@@ -1,0 +1,805 @@
+/* =========================
+   CONFIGURAÇÕES GERAIS
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #121212;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CABEÇALHO DA PLAYLIST
+========================= */
+
+.playlist {
+    padding: 30px 20px 100px;
+}
+
+.capa {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 25px;
+
+    background: #282828;
+    border-radius: 8px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.capa img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.capa p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.titulo {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.descricao {
+    color: #b3b3b3;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   BOTÃO DE PLAY
+========================= */
+
+.botao-play {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+
+    background: #1ed760;
+    color: black;
+
+    font-size: 22px;
+
+    margin-top: 25px;
+}
+
+
+/* =========================
+   MÚSICAS
+========================= */
+
+.musicas {
+    margin-top: 25px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.musica {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    padding: 12px 5px;
+    gap: 15px;
+}
+
+.numero {
+    color: #aaa;
+    width: 20px;
+    text-align: center;
+}
+
+.nome-musica {
+    font-size: 16px;
+}
+
+.artista {
+    color: #aaa;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+
+/* =========================
+   PLAYER INFERIOR
+========================= */
+
+.player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    min-height: 120px;
+
+    background: #181818;
+    border-top: 1px solid #282828;
+
+    padding: 10px 15px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+
+    column-gap: 10px;
+
+    z-index: 100;
+}
+
+
+/* =========================
+   INFORMAÇÕES
+========================= */
+
+.player-info {
+    grid-column: 1;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    min-width: 0;
+}
+
+
+.player-capa {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+.player-capa img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+.player-musica {
+    font-size: 14px;
+    color: white;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.player-artista {
+    color: #aaa;
+    font-size: 12px;
+
+    margin-top: 4px;
+}
+
+
+/* =========================
+   CONTROLES
+========================= */
+
+.player-controles {
+    grid-column: 2;
+    grid-row: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+.player-controles button {
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 18px;
+
+    cursor: pointer;
+}
+
+
+.player-controles .player-play {
+    width: 42px;
+    height: 42px;
+
+    background: white;
+    color: black;
+
+    border-radius: 50%;
+
+    font-size: 16px;
+}
+
+.ok{
+  background: none;
+  border: none;
+  color: white;
+  display: flex;
+  padding: 10px;
+}
+
+/* =========================
+   BARRA DE PROGRESSO
+========================= */
+
+.player-progresso {
+    position: absolute;
+
+    left: 15px;
+    right: 15px;
+    bottom: 5px;
+
+    height: 12px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+}
+
+.tempo-atual,
+.tempo-total {
+    color: #aaa;
+    font-size: 10px;
+    min-width: 28px;
+}
+
+.tempo-total {
+    text-align: right;
+}
+
+.barra-progresso {
+    flex: 1;
+
+    width: 100%;
+    height: 4px;
+
+    cursor: pointer;
+
+    accent-color: #1ed760;
+}
+
+/* =========================
+   PLAYER EXPANDIDO
+========================= */
+
+.player-expandido {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: #121212;
+
+    z-index: 1000;
+
+    padding: 25px 25px 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(100%);
+
+    transition: transform 0.3s ease;
+
+    visibility: hidden;
+}
+
+
+/* PLAYER ABERTO */
+
+.player-expandido.aberto {
+    transform: translateY(0);
+
+    visibility: visible;
+}
+
+
+/* BOTÃO FECHAR */
+
+.fechar-player {
+    align-self: flex-start;
+
+    border: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 32px;
+
+    cursor: pointer;
+
+    margin-bottom: 25px;
+}
+
+
+/* CAPA */
+
+.capa-expandida {
+    width: min(85vw, 380px);
+    aspect-ratio: 1;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5);
+}
+
+.capa-expandida img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* INFORMAÇÕES */
+
+.info-expandida {
+    margin-top: 30px;
+}
+
+.nome-expandido {
+    color: white;
+
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.artista-expandido {
+    color: #aaa;
+
+    font-size: 16px;
+
+    margin-top: 7px;
+}
+
+
+/* PROGRESSO */
+
+.progresso-expandido {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 25px;
+}
+
+.tempo-expandido-atual,
+.tempo-expandido-total {
+    color: #aaa;
+
+    font-size: 12px;
+
+    min-width: 30px;
+}
+
+.tempo-expandido-total {
+    text-align: right;
+}
+
+.barra-expandida {
+    flex: 1;
+
+    height: 5px;
+
+    accent-color: #1ed760;
+}
+
+
+/* CONTROLES */
+
+.controles-expandidos {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    margin-top: 30px;
+}
+
+.controles-expandidos button {
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.controles-expandidos .play-expandido {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: black;
+
+    font-size: 22px;
+}
+
+/* =========================
+   BOTÃO FAVORITO
+========================= */
+
+.musica {
+    position: relative;
+}
+
+.botao-favorito {
+    margin-left: auto;
+
+    border: none;
+    background: transparent;
+
+    color: #aaa;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+.botao-favorito.favoritado {
+    color: #1ed760;
+}
+
+/* =================================
+   PÁGINA DE FAVORITOS
+================================= */
+
+.pagina-favoritos {
+    background: linear-gradient(
+        180deg,
+        #202020 0%,
+        #121212 45%,
+        #121212 100%
+    );
+
+    min-height: 100vh;
+    color: white;
+}
+
+
+/* =================================
+   CABEÇALHO
+================================= */
+
+.cabecalho-favoritos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 25px 20px 20px;
+
+}
+
+
+.voltar-favoritos {
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #282828;
+
+    color: white;
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.voltar-favoritos:active {
+    transform: scale(.92);
+}
+
+
+.subtitulo-favoritos {
+
+    color: #aaa;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 4px;
+
+}
+
+
+.cabecalho-favoritos h1 {
+
+    font-size: 28px;
+
+    margin: 0;
+
+}
+
+
+/* =================================
+   CONTEÚDO
+================================= */
+
+.conteudo-favoritos {
+
+    padding: 10px 20px 40px;
+
+}
+
+
+/* =================================
+   TOPO DA PLAYLIST
+================================= */
+
+.topo-favoritos {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.icone-favoritos {
+
+    width: 65px;
+    height: 65px;
+
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #6a0dad,
+        #1ed760
+    );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 30px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35);
+
+}
+
+
+.titulo-favoritos {
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    margin-bottom: 5px;
+
+}
+
+
+.descricao-favoritos {
+
+    color: #aaa;
+
+    font-size: 13px;
+
+}
+
+
+/* =================================
+   MÚSICAS
+================================= */
+
+#lista-favoritos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+}
+
+
+#lista-favoritos .musica {
+
+    width: 100%;
+
+    min-height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 8px;
+
+    border-radius: 7px;
+
+    transition: background .2s;
+
+}
+
+
+#lista-favoritos .musica:hover {
+
+    background: #282828;
+
+}
+
+
+#lista-favoritos .musica:active {
+
+    background: #333;
+
+}
+
+
+.capa-musica {
+
+    width: 50px;
+    height: 50px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+
+    flex-shrink: 0;
+
+}
+
+
+#lista-favoritos .nome-musica {
+
+    color: white;
+
+    font-size: 15px;
+
+    margin-bottom: 4px;
+
+}
+
+
+#lista-favoritos .artista {
+
+    color: #999;
+
+    font-size: 12px;
+
+}
+
+
+/* =================================
+   NENHUMA MÚSICA
+================================= */
+
+.favoritos-vazio {
+
+    display: none;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+}
+
+
+.coracao-vazio {
+
+    font-size: 70px;
+
+    color: #555;
+
+    margin-bottom: 15px;
+
+}
+
+
+.favoritos-vazio h2 {
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.favoritos-vazio p {
+
+    color: #888;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    max-width: 280px;
+
+    margin: 0 auto 25px;
+
+}
+
+
+.favoritos-vazio button {
+
+    border: none;
+
+    background: #1ed760;
+
+    color: #000;
+
+    font-weight: bold;
+
+    padding: 12px 22px;
+
+    border-radius: 25px;
+
+    cursor: pointer;
+
+}

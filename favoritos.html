@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Favoritos</title>
+
+    <link rel="stylesheet" href="Css/style.css">
+
+</head>
+
+
+<body class="pagina-favoritos">
+
+
+    <header class="cabecalho-favoritos">
+
+        <button
+            class="voltar-favoritos"
+            onclick="window.location.href='Index.html'">
+
+            ←
+
+        </button>
+
+
+        <div>
+
+            <p class="subtitulo-favoritos">
+                SUA COLEÇÃO
+            </p>
+
+            <h1>
+                Músicas favoritas
+            </h1>
+
+        </div>
+
+    </header>
+
+
+    <main class="conteudo-favoritos">
+
+        <div class="topo-favoritos">
+
+            <div class="icone-favoritos">
+                ♥
+            </div>
+
+            <div>
+
+                <p class="titulo-favoritos">
+                    Suas favoritas
+                </p>
+
+                <p
+                    class="descricao-favoritos"
+                    id="quantidade-favoritos">
+
+                    0 músicas
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section
+            class="musicas"
+            id="lista-favoritos">
+
+        </section>
+
+
+        <div
+            class="favoritos-vazio"
+            id="favoritos-vazio">
+
+            <div class="coracao-vazio">
+                ♡
+            </div>
+
+            <h2>
+                Ainda não há favoritas
+            </h2>
+
+            <p>
+                Escolha suas músicas preferidas
+                e elas aparecerão aqui.
+            </p>
+
+            <button
+                onclick="window.location.href='Index.html'">
+
+                Explorar músicas
+
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <audio id="audio"></audio>
+
+
+    <script src="Js/favoritos.js"></script>
+
+</body>
+
+</html>
